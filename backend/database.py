@@ -1,5 +1,6 @@
+import os
 from sqlalchemy import create_engine
 
-DATABASE_URL = "postgresql://postgres:Data123@localhost:5432/ecommerce_analytics"
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_engine(DATABASE_URL)
