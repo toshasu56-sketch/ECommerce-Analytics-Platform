@@ -1,0 +1,51 @@
+product_id,product_name,category,price
+1,Product_1,Electronics,30534.72
+2,Product_2,Fashion,26800.17
+3,Product_3,Fashion,8337.44
+4,Product_4,Books,13643.4
+5,Product_5,Sports,11136.84
+6,Product_6,Home & Kitchen,42174.03
+7,Product_7,Electronics,11606.59
+8,Product_8,Electronics,40291.28
+9,Product_9,Books,13533.5
+10,Product_10,Fashion,45674.18
+11,Product_11,Sports,43843.11
+12,Product_12,Home & Kitchen,10788.8
+13,Product_13,Books,19902.47
+14,Product_14,Books,7315.01
+15,Product_15,Fashion,12482.05
+16,Product_16,Sports,27041.07
+17,Product_17,Sports,21536.0
+18,Product_18,Sports,20090.15
+19,Product_19,Fashion,49866.82
+20,Product_20,Fashion,25574.41
+21,Product_21,Electronics,37837.95
+22,Product_22,Electronics,7811.5
+23,Product_23,Fashion,39645.55
+24,Product_24,Books,29901.17
+25,Product_25,Books,19204.64
+26,Product_26,Books,26549.89
+27,Product_27,Sports,43066.83
+28,Product_28,Electronics,34078.11
+29,Product_29,Electronics,34149.18
+30,Product_30,Sports,37593.71
+31,Product_31,Home & Kitchen,5755.3
+32,Product_32,Books,8076.26
+33,Product_33,Electronics,47700.03
+34,Product_34,Home & Kitchen,48600.03
+35,Product_35,Fashion,25482.55
+36,Product_36,Electronics,43551.82
+37,Product_37,Home & Kitchen,42115.13
+38,Product_38,Sports,30526.72
+39,Product_39,Fashion,18820.91
+40,Product_40,Fashion,27061.08
+41,Product_41,Sports,45940.98
+42,Product_42,Sports,16342.97
+43,Product_43,Electronics,5771.01
+44,Product_44,Home & Kitchen,43960.35
+45,Product_45,Home & Kitchen,12124.73
+46,Product_46,Fashion,43924.88
+47,Product_47,Electronics,4465.54
+48,Product_48,Books,40837.96
+49,Product_49,Sports,38338.55
+50,Product_50,Fashion,33055.59
