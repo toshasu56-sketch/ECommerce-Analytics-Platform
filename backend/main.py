@@ -160,10 +160,17 @@ def monthly_revenue():
     with engine.connect() as conn:
         result = conn.execute(text("""
             SELECT
-                TO_CHAR(order_date, 'YYYY-MM') AS month,
+                TO_CHAR(
+                    TO_DATE(order_date, 'DD-MM-YYYY'),
+                    'YYYY-MM'
+                ) AS month,
                 SUM(sales) AS revenue
             FROM orders
-            GROUP BY month
+            GROUP BY
+                TO_CHAR(
+                    TO_DATE(order_date, 'DD-MM-YYYY'),
+                    'YYYY-MM'
+                )
             ORDER BY month
         """))
 

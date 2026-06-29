@@ -1,4 +1,4 @@
-const API = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL;
 
 export async function getDashboardData() {
   const [orders, customers, revenue, avgOrder] = await Promise.all([
@@ -15,55 +15,38 @@ export async function getDashboardData() {
     avgOrder: avgOrder.average_order_value,
   };
 }
+
 export async function getRevenueTrend() {
-  const response = await fetch(
-    "http://127.0.0.1:8000/revenue-trend"
-  );
-
+  const response = await fetch(`${API_URL}/revenue-trend`);
   return response.json();
 }
+
 export async function getCategorySales() {
-  const response = await fetch(
-    "http://127.0.0.1:8000/category-sales"
-  );
-
+  const response = await fetch(`${API_URL}/category-sales`);
   return response.json();
 }
+
 export async function getTopProducts() {
-  const response = await fetch(
-    "http://127.0.0.1:8000/top-products"
-  );
-
+  const response = await fetch(`${API_URL}/top-products`);
   return response.json();
 }
-export const getMonthlyRevenue = async () => {
-  const response = await fetch(
-  "http://127.0.0.1:8000/monthly-revenue"
-);
 
-return response.json();
+export const getMonthlyRevenue = async () => {
+  const response = await fetch(`${API_URL}/monthly-revenue`);
+  return response.json();
 };
 
 export const getProducts = async () => {
-  const response = await fetch(
-    "http://127.0.0.1:8000/products"
-  );
-
+  const response = await fetch(`${API_URL}/products`);
   return response.json();
 };
 
 export const getTopCustomers = async () => {
-  const response = await fetch(
-    "http://127.0.0.1:8000/top-customers"
-  );
-
+  const response = await fetch(`${API_URL}/top-customers`);
   return response.json();
 };
 
 export const getCategoryKpis = async () => {
-  const response = await fetch(
-    "http://127.0.0.1:8000/category-kpis"
-  );
-
+  const response = await fetch(`${API_URL}/category-kpis`);
   return response.json();
 };
