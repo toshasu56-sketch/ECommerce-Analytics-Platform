@@ -267,3 +267,24 @@ def category_kpis():
         ]
 
     return data
+
+from sqlalchemy import text
+
+@app.get("/check-date-type")
+def check_date_type():
+    with engine.connect() as conn:
+        result = conn.execute(text("""
+            SELECT
+                column_name,
+                data_type
+            FROM information_schema.columns
+            WHERE table_name='orders';
+        """))
+
+        return [
+            {
+                "column": row[0],
+                "type": row[1]
+            }
+            for row in result
+        ]
