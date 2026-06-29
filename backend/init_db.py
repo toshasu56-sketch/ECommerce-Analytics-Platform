@@ -1,9 +1,5 @@
 import pandas as pd
-from sqlalchemy import create_engine
-import os
-
-DATABASE_URL = os.getenv("DATABASE_URL")
-engine = create_engine(DATABASE_URL)
+from database import engine
 
 # Read CSV files
 customers = pd.read_csv("customers.csv")
@@ -32,4 +28,4 @@ orders.to_sql(
     index=False
 )
 
-print("Database initialized successfully!")
+print("✅ Database initialized successfully!")

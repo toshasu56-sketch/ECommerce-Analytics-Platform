@@ -288,3 +288,20 @@ def check_date_type():
             }
             for row in result
         ]
+        
+        
+        
+        
+        
+        
+        @app.get("/test-monthly")
+        def test_monthly():
+         with engine.connect() as conn:
+           result = conn.execute(text("""
+            SELECT
+                order_date
+            FROM orders
+            LIMIT 20
+        """))
+
+        return [row[0] for row in result]
