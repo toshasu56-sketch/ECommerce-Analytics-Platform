@@ -157,33 +157,29 @@ def top_products():
 
 @app.get("/monthly-revenue")
 def monthly_revenue():
-    with engine.connect() as conn:
-        result = conn.execute(text("""
-            SELECT
-                TO_CHAR(
-                    TO_DATE(order_date, 'DD-MM-YYYY'),
-                    'YYYY-MM'
-                ) AS month,
-                SUM(sales) AS revenue
-            FROM orders
-            GROUP BY
-                TO_CHAR(
-                    TO_DATE(order_date, 'DD-MM-YYYY'),
-                    'YYYY-MM'
-                )
-            ORDER BY month
-        """))
+    try:
+        with engine.connect() as conn:
+            result = conn.execute(text("""
+                SELECT
+                    SUBSTRING(order_date, 7, 4) || '-' || SUBSTRING(order_date, 4, 2) AS month,
+                    SUM(sales) AS revenue
+                FROM orders
+                GROUP BY month
+                ORDER BY month
+            """))
 
-        data = [
-            {
-                "month": row[0],
-                "revenue": float(row[1])
-            }
-            for row in result
-        ]
+            data = [
+                {
+                    "month": row[0],
+                    "revenue": float(row[1])
+                }
+                for row in result
+            ]
 
-    return data
+            return data
 
+    except Exception as e:
+        return {"error": str(e)}
 
 # -----------------------------
 # Products Table
