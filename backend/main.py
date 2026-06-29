@@ -164,11 +164,12 @@ def monthly_revenue():
                     SUBSTRING(order_date, 7, 4) || '-' || SUBSTRING(order_date, 4, 2) AS month,
                     SUM(sales) AS revenue
                 FROM orders
-                GROUP BY month
+                GROUP BY
+                    SUBSTRING(order_date, 7, 4) || '-' || SUBSTRING(order_date, 4, 2)
                 ORDER BY month
             """))
 
-            data = [
+            return [
                 {
                     "month": row[0],
                     "revenue": float(row[1])
@@ -176,11 +177,11 @@ def monthly_revenue():
                 for row in result
             ]
 
-            return data
-
     except Exception as e:
-        return {"error": str(e)}
-
+        return {
+            "error": str(e),
+            "type": type(e).__name__
+        }
 # -----------------------------
 # Products Table
 # -----------------------------
